@@ -131,6 +131,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="hanoy_recursion.h" />
+    <ClInclude Include="knight_recursion.h" />
     <ClInclude Include="maxElem_recursion.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

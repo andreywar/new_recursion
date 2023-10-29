@@ -3,7 +3,7 @@
 #include <time.h>
 
 using namespace std;
-void array_generate(int N, int a[])
+void arrayGenerate(int N, int a[])
 {
 	srand(time(NULL));
 	for (int i = 0; i < N; i++)
@@ -14,12 +14,12 @@ void array_generate(int N, int a[])
 }
 
 
-int search(int* array, int max_number, int current_index, int size)
+int searchElem(int* array, int max_number, int current_index, int size)
 {
 	int temp = 0;
 	if (array[current_index] > max_number) { temp = current_index; max_number = array[current_index]; }
 	if (current_index == size - 1) return temp;
-	int temp2 = search(array, max_number, current_index + 1, size);
+	int temp2 = searchElem(array, max_number, current_index + 1, size);
 	if (temp < temp2) return temp2; else return temp;
 }
 
@@ -29,8 +29,8 @@ void maxElem() {
 	int N;
 	cin >> N;
 	int* a = new int[N];
-	array_generate(N, a);
-	int max_index = search(a, a[0], 1, N);
+	arrayGenerate(N, a);
+	int max_index = searchElem(a, a[0], 1, N);
 	cout << "\nMaximum element a[" << max_index << "]=" << a[max_index] << endl;
 	system("pause");
 	delete[] a;
