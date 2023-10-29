@@ -13,7 +13,6 @@ void arrayGenerate(int N, int a[])
 	}
 }
 
-
 int searchElem(int* array, int max_number, int current_index, int size)
 {
 	int temp = 0;
@@ -22,7 +21,6 @@ int searchElem(int* array, int max_number, int current_index, int size)
 	int temp2 = searchElem(array, max_number, current_index + 1, size);
 	if (temp < temp2) return temp2; else return temp;
 }
-
 
 void maxElem() {
 	cout << "Enter size of array: ";
