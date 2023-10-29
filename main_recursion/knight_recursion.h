@@ -12,12 +12,12 @@ const int dx[8] = { 2, 1, -1, -2, -2, -1, 1, 2 };
 const int dy[8] = { 1, 2, 2, 1, -1, -2, -2, -1 };
 
 
-bool isValidMove(int x, int y, int n, int* board[]) {
+bool moveCheck(int x, int y, int n, int* board[]) {
     return (x >= 0 && x < n && y >= 0 && y < n && board[x][y] == -1);
 }
 
 
-bool findKnightTour(int x, int y, int move, int n, int* board[]) {
+bool searchStep(int x, int y, int move, int n, int* board[]) {
 
     board[x][y] = move;
     cout << x << " " << y << " " << move << " " << n << " " << endl;
@@ -29,8 +29,8 @@ bool findKnightTour(int x, int y, int move, int n, int* board[]) {
         int nextX = x + dx[i];
         int nextY = y + dy[i];
 
-        if (isValidMove(nextX, nextY, n, board)) {
-            if (findKnightTour(nextX, nextY, move + 1, n, board))
+        if (moveCheck(nextX, nextY, n, board)) {
+            if (searchStep(nextX, nextY, move + 1, n, board))
                 return true;
         }
     }
@@ -71,7 +71,7 @@ void knight() {
 
 
     coutBoard(n, deskBoard);
-    if (findKnightTour(abscisStart, ordinateStart, 1, n, deskBoard)) {
+    if (searchStep(abscisStart, ordinateStart, 1, n, deskBoard)) {
         cout << "Matrix of knight steps:" << endl;
         coutBoard(n, deskBoard);
     }
